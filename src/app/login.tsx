@@ -6,7 +6,7 @@ import { auth, googleProvider } from "../lib/firebaseConfig";
 import { useState, useEffect } from "react";
 
 const LoginPage = () => {
-  const [user, setUser] = useState<any>(null); // To store the logged-in user info
+  const [user, setUser] = useState<unknown>(null); // To store the logged-in user info
   const router = useRouter();
 
   // Handle Google Sign-In

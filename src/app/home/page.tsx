@@ -26,11 +26,9 @@ const HomePage = () => {
         const docSnap = await getDoc(userDocRef);
 
         if (docSnap.exists()) {
-          // A name has already been assigned
           setAssignedName(docSnap.data().assignedName);
-          setIsNameAssigned(true); // Disable the button
+          setIsNameAssigned(true);
         } else {
-          // No name assigned yet
           setIsNameAssigned(false);
         }
       } catch (error) {
@@ -41,7 +39,7 @@ const HomePage = () => {
 
   // Assign a random name to the user
   const assignRandomName = async () => {
-    if (isNameAssigned || !user) return; // Prevent multiple assignments
+    if (isNameAssigned || !user) return;
 
     // Filter available names (excluding user's own name and already assigned names)
     const availableNames = officeMembers.filter((name) => name !== user.displayName);
@@ -51,11 +49,10 @@ const HomePage = () => {
       setAssignedName(randomName);
 
       try {
-        // Save the assigned name in Firestore
         const userDocRef = doc(db, "users", user.email!);
         await setDoc(userDocRef, { assignedName: randomName });
 
-        setIsNameAssigned(true); // Disable the button after assignment
+        setIsNameAssigned(true);
       } catch (error) {
         console.error("Error assigning random name:", error);
       }
@@ -74,16 +71,38 @@ const HomePage = () => {
   }, [user]);
 
   if (!user) {
-    return null; // Wait until redirect happens
+    return null;
   }
 
   return (
-    <div>
-      <h1>Welcome, {user.displayName}</h1>
-      <h2>Your assigned name: {assignedName || "No name assigned yet"}</h2>
-      <button onClick={assignRandomName} disabled={isNameAssigned}>
-        {isNameAssigned ? "Name Assigned" : "Get Assigned Name"}
-      </button>
+    <div
+      className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center text-center px-4"
+      style={{
+        backgroundImage: "url('background.jpg')",
+      }}
+    >
+      <div className="bg-white/90 backdrop-blur-md p-6 rounded-lg shadow-lg max-w-md w-full">
+        <h1 className="text-2xl font-bold text-gray-800 mb-4">
+          Welcome, {user.displayName}
+        </h1>
+        <h2 className="text-lg text-gray-600 mb-6">
+          Your assigned name:{" "}
+          <span className="font-semibold">
+            {assignedName || "No name assigned yet"}
+          </span>
+        </h2>
+        <button
+          onClick={assignRandomName}
+          disabled={isNameAssigned}
+          className={`w-full py-2 px-4 rounded-lg text-white font-medium transition ${
+            isNameAssigned
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-green-500 hover:bg-green-600"
+          }`}
+        >
+          {isNameAssigned ? "Name Assigned" : "Get Assigned Name"}
+        </button>
+      </div>
     </div>
   );
 };

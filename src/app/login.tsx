@@ -3,8 +3,7 @@ import React from 'react';
 const Login = () => {
   return (
     <div className="min-h-screen bg-[#ECEFFF] flex items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-3xl overflow-hidden shadow-none">
-        <div className="p-8 flex flex-col items-center">
+      <div className="p-8 flex flex-col items-center">
           {/* Christmas Scene Image */}
           <div className="w-64 h-64 mb-6 relative flex items-center justify-center">
             <img 
@@ -34,7 +33,6 @@ const Login = () => {
             </button>
           </div>
         </div>
-      </div>
     </div>
   );
 };

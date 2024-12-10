@@ -134,7 +134,7 @@ const HomePage = () => {
         {isNameAssigned ? (
           <>
             <h2 className="text-lg text-gray-600 mb-6">
-              Your assigned name:{" "}
+              You have to pick a gift for:{" "}
               <span className="font-semibold text-green-600">
                 {assignedName}
               </span>

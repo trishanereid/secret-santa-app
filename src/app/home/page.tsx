@@ -14,7 +14,7 @@ const HomePage = () => {
   const user = auth.currentUser;
 
   const officeMembers = [
-    "Trishane", "Garvin", "Senuri", "Reid", "Asanka", "Pradeep", "Asankapradeep"
+    "Trishane", "Garvin", "Asanka", "Pradeep", "Asankapradeep", "Aqua", "Eve", "Thomas", "Sunny", "Premarathna", "Super", "Jacob"
   ];
 
   const fetchUserFirstName = async () => {

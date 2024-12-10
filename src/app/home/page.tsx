@@ -64,7 +64,7 @@ const HomePage = () => {
   // Redirect to login if the user is not authenticated
   useEffect(() => {
     if (!user) {
-      router.push("/page");
+      router.push("/login");
     } else {
       fetchAssignedName();
     }

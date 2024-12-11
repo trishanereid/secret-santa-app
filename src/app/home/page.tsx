@@ -14,7 +14,7 @@ const HomePage = () => {
   const user = auth.currentUser;
 
   const officeMembers = [
-    "Trishane", "Garvin", "Asanka", "Pradeep", "Asankapradeep", "Aqua", "Eve", "Thomas", "Sunny", "Premarathna", "Super", "Jacob"
+    "Prathibha", "Dilushi", "Damiand", "Kalasi", "Nethuki", "Sanduni", "Pasindu", "Ravindu", "Kushani", "Pawani", "Ranugi", "Sharadha", "Dewmal", "Chami", "Gayathri", "Oshini"
   ];
 
   const fetchUserFirstName = async () => {
@@ -128,7 +128,7 @@ const HomePage = () => {
     >
       <div className="bg-white/90 backdrop-blur-md p-6 rounded-lg shadow-lg max-w-md w-full">
         <h1 className="text-2xl font-bold text-gray-800 mb-4">
-          Welcome, {userFirstName || user.displayName}
+          Welcome, {userFirstName}
         </h1>
         
         {isNameAssigned ? (
